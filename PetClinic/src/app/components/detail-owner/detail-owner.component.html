@@ -1,0 +1,36 @@
+<h2>Propietario</h2>
+
+<div id="formDetailsOwner" class="formDetailsOwner">
+    <form class="form-horizontal" #ownerDetailsForm="ngForm" (ngSubmit)="onSubmit(ownerDetailsForm.value)">
+        <div>
+            <label for="firstName"><b>Nombre</b></label>
+            <input type="text" id="firstName" class="form-control" required
+            [(ngModel)]="owner.firstName" name="firstName" #firstName="ngModel" />
+        </div>
+        <div>
+            <label for="address"><b>Dirección</b></label>
+            <input type="text" id="address" class="form-control" required [(ngModel)]="owner.address" name="address"
+                #address="ngModel" />
+        </div>
+        <div>
+            <label for="city"><b>Ciudad</b></label>
+            <input type="text" id="city" class="form-control" required [(ngModel)]="owner.city" name="city"
+                #city="ngModel" />
+        </div>
+        <div>
+            <label for="telephone"><b>Teléfono</b></label>
+            <input type="text" id="telephone" class="form-control" required [(ngModel)]="owner.telephone"
+                name="telephone" #telephone="ngModel" />
+        </div>
+        <!-- <div>
+            <label for="pets">Mascotas</label>
+            <input type="text" id="pets" class="form-control" required [(ngModel)]="owner.pets" name="pets"
+                #pets="ngModel" />
+        </div> -->
+        <div>
+            <button type="button" routerLink="/owners" role="button">Volver</button>
+            <!-- <td><button (click)="borrarOwner(o)" type="button">Borrar</button></td> -->
+        </div>
+    </form>
+    <app-pets [idOwner]="owner.id"></app-pets>
+</div>

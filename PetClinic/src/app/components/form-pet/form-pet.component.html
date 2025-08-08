@@ -1,0 +1,33 @@
+<div id="formPets" class="formPets">
+    <form class="form-horizontal" #petForm="ngForm" (ngSubmit)="onSubmit(petForm.value)">
+        <legend>{{textoBoton}} pet</legend>
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" class="form-control" required [(ngModel)]="pet.name" name="name"
+                #name="ngModel" />
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+        <div>
+            <label for="birthDate">Cumpleaños</label>
+            <input type="date" id="birthDate" class="form-control" required [(ngModel)]="pet.birthDate" name="birthDate"
+                #birthDate="ngModel" />
+            <div [hidden]="birthDate.valid || birthDate.pristine" class="alert alert-danger">
+                El cumpleaños es obligatorio
+            </div>
+        </div>
+        <div>
+            <label for="typeName">Tipo de animal</label>
+            <select id="typeName" class="form-control" [(ngModel)]="pet.typeName">
+                @for(petType of listaTypes; track $index) {
+                <option [ngValue]="petType">{{petType.name}}</option>
+                }
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit" role="button">{{textoBoton}}</button>
+            <button type="button" class="btn btn-primary" routerLink="/owners" role="button">Cancelar</button>
+        </div>
+    </form>
+</div>

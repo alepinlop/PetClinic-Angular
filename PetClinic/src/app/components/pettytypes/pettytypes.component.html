@@ -1,0 +1,22 @@
+<div>
+    <legend>Petty Type</legend>
+    <table class="table">
+        <br>
+        <tbody>
+            @for(t of listarPettytypes; track $index){
+            <tr>
+                <td><input type="text" readonly value="{{t.name}}"></td>
+                <td><button class="btn btn-primary" routerLink='/modificar-pettytype/{{t.id}}' role="button">Editar</button></td>
+                <td><button (click)="borrarPettytype(t)">Borrar</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <button (click)="anadirForm()">Anadir Pettytype</button>
+    @if(showForm == true){
+    <app-form-pettytype (respuesta)="onAnadirType($event)"></app-form-pettytype>
+    }
+
+    <button class="btn btn-primary" routerLink="/" role="button">Cancelar</button>
+</div>

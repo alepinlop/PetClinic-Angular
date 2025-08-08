@@ -1,0 +1,50 @@
+<div id="formOwners" class="formOwners">
+    <form class="form-horizontal" #ownerForm="ngForm" (ngSubmit)="onSubmit(ownerForm.value)">
+        <legend>{{textoBoton}} owner</legend>
+        <div>
+            <label for="firstName">Nombre</label>
+            <input type="text" id="firstName" class="form-control" required [(ngModel)]="owner.firstName"
+                name="firstName" #firstName="ngModel" />
+            <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div><br>
+        <div>
+            <label for="lastName">Apellidos</label>
+            <input type="text" id="lastName" class="form-control" required [(ngModel)]="owner.lastName" name="lastName"
+                #lastName="ngModel" />
+            <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                El apellido es obligatorio
+            </div>
+        </div><br>
+        <div>
+            <label for="address">Direccion</label>
+            <input type="text" id="address" class="form-control" required [(ngModel)]="owner.address" name="address"
+                #address="ngModel" />
+            <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                La direccion es obligatoria
+            </div>
+        </div><br>
+        <div>
+            <label for="city">Ciudad</label>
+            <input type="text" id="city" class="form-control" required [(ngModel)]="owner.city" name="city"
+                #city="ngModel" />
+            <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                La ciudad es obligatoria
+            </div>
+        </div><br>
+        <div>
+            <label for="telephone">Telefono</label>
+            <input type="text" id="telephone" class="form-control" required [(ngModel)]="owner.telephone"
+                name="telephone" #telephone="ngModel" />
+            <div [hidden]="telephone.valid || telephone.pristine" class="alert alert-danger">
+                El telefono es obligatorio
+            </div>
+        </div><br>
+        <div>
+            <button class="btn btn-primary" type="submit" [disabled]="!ownerForm.valid"
+                role="button">{{textoBoton}}</button>   
+            <button type="button" class="btn btn-primary" routerLink="/owners" role="button">Cancelar</button>
+        </div>
+    </form>
+</div>

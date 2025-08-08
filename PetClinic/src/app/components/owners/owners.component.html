@@ -1,0 +1,37 @@
+<legend>Owners</legend>
+
+<table class="table table-striped" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>DIRECCION</th>
+            <th>CIUDAD</th>
+            <th>TELEFONO</th>
+            <th>MASCOTAS</th>
+            <th>EDITAR</th>
+            <th>BORRAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (o of listaOwners; track $index) {
+        <tr>
+            <td>{{o.id}}</td>
+            <td><a routerLink='/ver-owner/{{o.id}}'>{{o.firstName}}</a></td>
+            <td>{{o.lastName}}</td>
+            <td>{{o.address}}</td>
+            <td>{{o.city}}</td>
+            <td>{{o.telephone}}</td>
+            <td>{{o.pets}}</td>
+            <td><button class="btn btn-primary" routerLink='/anadir-owner/{{o.id}}' role="button">Editar</button></td>
+            <td><button (click)="borrarOwner(o)" type="button">Borrar</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" (click)="irNuevoUModificarOwner()">Añadir Owner</button>
+
+<!--<button class="btn btn-primary" routerLink='/vets/' role="button">Veterinarios</button>-->
+<button class="btn btn-primary" routerLink="/" role="button">Cancelar</button>

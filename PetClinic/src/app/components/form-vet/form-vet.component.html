@@ -1,0 +1,36 @@
+<div id="formVets" class="formVets">
+    <form class="form-horizontal" #vetForm="ngForm" (ngSubmit)="onSubmit(vetForm.value)">
+        <legend>{{textoBoton}} vet</legend>
+        <br>
+        <div>
+            <label for="firstName">Nombre</label>
+            <input type="text" id="firstName" class="form-control" required [(ngModel)]="vet.firstName" name="firstName"
+                #firstName="ngModel" />
+            <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="lastName">Apellidos</label>
+            <input type="text" id="lastName" class="form-control" required [(ngModel)]="vet.lastName" name="lastName"
+                #lastName="ngModel" />
+            <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                El apellido es obligatorio
+            </div>
+        </div><br>
+        <div>
+            <label for="specialties">Especialidades</label>
+
+            <select id="specialties" multiple name="specialties" class="form-control" [(ngModel)]="vet.specialties">
+                @for(spec of listaSpec; track $index) {
+                <option [ngValue]="spec">{{spec.name}}</option>
+                }
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit" role="button">{{textoBoton}}</button>
+            <button type="button" class="btn btn-primary" routerLink="/vets" role="button">Cancelar</button>
+        </div>
+    </form>
+</div>

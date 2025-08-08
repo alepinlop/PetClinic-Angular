@@ -1,0 +1,34 @@
+<legend>Pets</legend>
+<table class="table table-striped" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>CUMPLEAÑOS</th>
+            <!-- <th>PROPIETARIO</th> -->
+            <th>ANIMAL</th>
+            <th>EDITAR</th>
+            <th>BORRAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (p of listaPets; track $index) {
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.birthDate}}</td>
+            <td>{{p.typeName}}</td>
+            <td><button class="btn btn-primary" routerLink='/anadir-pet/{{p.id}}' role="button">Editar</button></td>
+            <td><button (click)="borrarPet(p)" type="button">Borrar</button></td>
+            <!-- <td><a class="btn btn-primary" routerLink='/anadir-owner/{{o.id}}' role="button">Editar</a></td>
+            <td><button (click)="borrarOwner(o)" type="button">Borrar</button></td> -->
+        </tr>
+        }
+    </tbody>
+</table>
+
+<!-- <button type="button" class="btn btn-primary" (click)="irNuevoUModificarOwner()">Añadir Owner</button> -->
+
+
+<button type="button" class="btn btn-primary" (click)="irNuevoModificarPet()">Añadir Mascosta</button>
+<button class="btn btn-primary" routerLink="/" role="button">Cancelar</button>

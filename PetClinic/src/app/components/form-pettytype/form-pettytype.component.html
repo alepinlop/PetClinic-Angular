@@ -1,0 +1,18 @@
+
+<h1>Pettytype</h1>
+
+<div>
+    <form #typeForm="ngForm" (ngSubmit)="anadirType(typeForm.value)">
+        <div style="visibility: hidden;">
+            <label>ID: </label>
+            <input type="number" name="id" required [(ngModel)]="type.id">
+        </div>
+        
+        <div>
+            <label>NOMBRE: </label>
+            <input type="text" name="name" required [(ngModel)]="type.name">
+            <span><button type="submit">Añadir</button></span>
+        </div>
+
+    </form>
+</div>

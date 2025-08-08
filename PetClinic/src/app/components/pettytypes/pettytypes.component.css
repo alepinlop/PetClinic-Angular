@@ -1,0 +1,12 @@
+button{
+    margin-left:1em;
+    font-weight: bold;
+    color:white;
+    background-color: rgb(15, 184, 184);
+    border-radius: 20%;
+}
+legend{
+    font-size:2em;
+    font-weight: bold;
+    color: rgb(15, 184, 184);;
+}

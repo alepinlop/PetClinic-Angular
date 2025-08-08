@@ -1,0 +1,33 @@
+
+<legend>Vets</legend>
+
+<table class="table table-striped" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>ESPECIALIDADES</th>
+            <th>EDITAR</th>
+            <th>BORRAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (v of listaVets; track $index) {
+        <tr>
+            <td>{{v.id}}</td>
+            <td>{{v.firstName + ' ' + v.lastName}}</td>
+            <td>
+                @for (s of v.specialties; track $index) {
+                    {{s.name}}
+                    <tr></tr>
+                }
+            </td>
+            <td><button class="btn btn-primary" routerLink='/anadir-vet/{{v.id}}' role="button">Editar</button></td>
+            <td><button (click)="borrarVet(v)" type="button">Borrar</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" (click)="irNuevoUModificarVet()">Añadir Vet</button>
+<button class="btn btn-primary" routerLink="/" role="button">Cancelar</button>
